@@ -1,13 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import './App.css';
 import reportWebVitals from './reportWebVitals';
+import App from './App';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import ContactDetails from './contactDetails';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/contact/:id" element={<ContactDetails />} />
+      </Routes>
+    </Router>
   </React.StrictMode>
 );
 

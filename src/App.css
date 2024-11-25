@@ -1,38 +1,247 @@
 .App {
   text-align: center;
+  position: relative;
+  padding: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.contacts-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.contact-card {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  margin: 10px;
+  cursor: pointer;
+  flex: 1 1 200px;
+  max-width: 200px;
+}
+
+.circle-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.placeholder-image {
+  width: 120px;
+  height: 120px;
+  background: #d3d3d3;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 40px;
+  font-weight: bold;
+  margin: 0 auto 10px;
+}
+
+.contact-name {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+.initials {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.search-bar {
+  width: 80%;
+  max-width: 600px;
+  padding: 10px;
+  margin: 20px 0;
+  font-size: 16px;
+}
+
+.contact-details {
+  padding: 20px;
+}
+
+.additional-info {
+  display: grid;
+  gap: 20px;
+}
+
+.top-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  padding: 10px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.back-button,
+.edit-button {
+  background: #007bff;
   color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.back-button:hover,
+.edit-button:hover {
+  background: #0056b3;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.profile-section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.profile-info {
+  margin-left: 20px;
+}
+
+.additional-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-box {
+  background-color: #f0f0f0;
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 600px;
+  text-align: left;
+}
+
+.add-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #007bff;
+  color: white;
+  font-size: 36px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.contact-details-container {
+  max-width: 1400px;
+  height: 90vh;
+  margin: 30px auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.info-box {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.info-box h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+.info-box p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.info-box a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.info-box a:hover {
+  text-decoration: underline;
+}
+
+.error-message {
+  text-align: center;
+  font-size: 18px;
+  color: red;
+  margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+  .additional-info {
+    grid-template-columns: 1fr;
   }
-  to {
-    transform: rotate(360deg);
+
+  .profile-image, .placeholder-image {
+    width: 120px;
+    height: 120px;
+    font-size: 36px;
+  }
+
+  .profile-section h2 {
+    font-size: 20px;
+  }
+
+  .profile-section p {
+    font-size: 14px;
+  }
+
+  .contact-details-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media (max-width: 480px) {
+  .contacts-container {
+    justify-content: center;
+  }
+
+  .contact-card {
+    flex: 1 1 35%;
+    max-width: 45%;
+  }
+
+  .search-bar {
+    width: 90%;
+  }
+
+  .circle-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .contact-name {
+    font-size: 14px;
+  }
+
+  .initials {
+    font-size: 24px;
   }
 }
